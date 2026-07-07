@@ -1,7 +1,8 @@
-import AppRoutes from "./routes/AppRoutes";
+import Medicines from "./Pages/Medicines/Medicines";
+
 
 function App() {
-  return <AppRoutes />
+  return <Medicines />;
 }
 
 export default App;

@@ -1,11 +1,23 @@
-import React from 'react'
+import "./Medicines.css";
+import Header from "../../components/Header/Header";
+import MedicineForm from "../../components/MedicineForm/MedicineForm";
+import SearchBar from "../../components/SearchBar/SearchBar";
+import MedicineTable from "../../components/MedicineTable/MedicineTable";
 
-const Medicines = () => {
+function Medicines() {
   return (
-    <div>
-      <h1>sonam7</h1>
+    <div className="container">
+
+      <Header />
+
+      <MedicineForm />
+
+      <SearchBar />
+
+      <MedicineTable />
+
     </div>
-  )
+  );
 }
 
-export default Medicines
+export default Medicines;

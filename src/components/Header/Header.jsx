@@ -1,19 +1,9 @@
-import "./Header.css";
-
 function Header() {
-  return (
-    <header className="header">
-
-      <h2>
-        Medicine Management
-      </h2>
-
+    return (
       <div>
-        Admin
+        <h1>💊 Medicine Management System</h1>
       </div>
-
-    </header>
-  );
-}
-
-export default Header;
+    );
+  }
+  
+  export default Header;
