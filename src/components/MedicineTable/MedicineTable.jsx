@@ -1,73 +1,74 @@
 import "./MedicineTable.css";
 
-const medicines = [
-  {
-    id:1,
-    fullName:"Paracetamol",
-    brand:"Cipla",
-    price:25,
-    quantity:20,
-    expiry:"20-Feb-2027"
-  },
-  {
-    id:2,
-    fullName:"Dolo 650",
-    brand:"Micro Labs",
-    price:40,
-    quantity:5,
-    expiry:"15-Dec-2026"
+function MedicineTable({ medicines, searchText }) {
+
+  const filteredMedicines = medicines.filter((medicine) =>
+    medicine.fullName
+      .toLowerCase()
+      .includes(searchText.toLowerCase())
+  );
+
+  if (filteredMedicines.length === 0) {
+
+    return (
+
+      <div className="empty-state">
+
+        No Medicines Found
+
+      </div>
+
+    );
+
   }
-];
 
-function MedicineTable(){
+  return (
 
-return(
+    <table className="medicine-table">
 
-<table className="medicine-table">
+      <thead>
 
-<thead>
+        <tr>
 
-<tr>
+          <th>Name</th>
 
-<th>Name</th>
+          <th>Brand</th>
 
-<th>Brand</th>
+          <th>Price</th>
 
-<th>Price</th>
+          <th>Quantity</th>
 
-<th>Quantity</th>
+          <th>Expiry</th>
 
-<th>Expiry</th>
+        </tr>
 
-</tr>
+      </thead>
 
-</thead>
+      <tbody>
 
-<tbody>
+        {filteredMedicines.map((medicine) => (
 
-{medicines.map((medicine)=>(
+          <tr key={medicine.id}>
 
-<tr key={medicine.id}>
+            <td>{medicine.fullName}</td>
 
-<td>{medicine.fullName}</td>
+            <td>{medicine.brand}</td>
 
-<td>{medicine.brand}</td>
+            <td>{medicine.price}</td>
 
-<td>₹{medicine.price}</td>
+            <td>{medicine.quantity}</td>
 
-<td>{medicine.quantity}</td>
+            <td>{medicine.expiry}</td>
 
-<td>{medicine.expiry}</td>
+          </tr>
 
-</tr>
+        ))}
 
-))}
+      </tbody>
 
-</tbody>
+    </table>
 
-</table>
-
-)
+  );
 
 }
 
