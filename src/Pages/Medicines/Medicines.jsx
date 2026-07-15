@@ -1,42 +1,54 @@
-import { useState } from "react";
-
-import "./Medicines.css";
-
 import Header from "../../components/Header/Header";
 import MedicineForm from "../../components/MedicineForm/MedicineForm";
-import SearchBar from "../../components/SearchBar/SearchBar";
 import MedicineTable from "../../components/MedicineTable/MedicineTable";
+import SearchBar from "../../components/SearchBar/SearchBar";
+import useMedicines from "../../hooks/useMedicines";
 
 function Medicines() {
 
-  const [medicines, setMedicines] = useState([]);
+    const {
 
-  const [searchText, setSearchText] = useState("");
+        medicines,
 
-  return (
+        loading,
 
-    <div className="container">
+        error,
 
-      <Header />
+        createMedicine,
 
-      <MedicineForm
-        medicines={medicines}
-        setMedicines={setMedicines}
-      />
+        editMedicine,
 
-      <SearchBar
-        searchText={searchText}
-        setSearchText={setSearchText}
-      />
+        removeMedicine,
 
-      <MedicineTable
-        medicines={medicines}
-        searchText={searchText}
-      />
+    } = useMedicines();
 
-    </div>
+    return (
 
-  );
+        <div className="container">
+
+            <Header />
+
+            <MedicineForm createMedicine={createMedicine} />
+
+            <SearchBar />
+
+            <MedicineTable
+
+                medicines={medicines}
+
+                loading={loading}
+
+                error={error}
+
+                editMedicine={editMedicine}
+
+                removeMedicine={removeMedicine}
+
+            />
+
+        </div>
+
+    );
 
 }
 

@@ -1,8 +1,7 @@
-import Medicines from "./Pages/Medicines/Medicines";
-
+import Medicines from "./pages/Medicines/Medicines";
 
 function App() {
-  return <Medicines />;
+    return <Medicines />;
 }
 
 export default App;
